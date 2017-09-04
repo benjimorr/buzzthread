@@ -34,8 +34,8 @@ gem 'turbolinks'
 
 gem 'bootstrap-sass'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# Used for encrypting User passwords
+gem 'bcrypt'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
