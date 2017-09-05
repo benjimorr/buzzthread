@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { User.create!(name: "BuzzThread User", email: "user@buzzthread.com", password: "password") }
+  let(:user) { User.create!(name: "Buzzthread User", email: "user@buzzthread.com", password: "password") }
 
   # Shoulda tests for name
   it { is_expected.to validate_presence_of(:name) }
@@ -20,13 +20,13 @@ RSpec.describe User, type: :model do
 
   describe "attributes" do
       it "should have name and email attributes" do
-          expect(user).to have_attributes(name: "BuzzThread User", email: "user@buzzthread.com")
+          expect(user).to have_attributes(name: "Buzzthread User", email: "user@buzzthread.com")
       end
   end
 
   describe "invalid user" do
       let(:user_with_invalid_name) { User.new(name: "", email: "user@buzzthread.com") }
-      let(:user_with_invalid_email) { User.new(name: "BuzzThread User", email: "") }
+      let(:user_with_invalid_email) { User.new(name: "Buzzthread User", email: "") }
 
       it "should be an invalid user due to blank name" do
           expect(user_with_invalid_name).to_not be_valid
