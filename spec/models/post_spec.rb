@@ -74,4 +74,14 @@ RSpec.describe Post, type: :model do
           end
       end
   end
+
+  describe "#create_vote" do
+      it "increases the number of votes for the post it is called on" do
+          expect(post.votes.count).to eq(1)
+      end
+
+      it "creates an up vote for the post it is called on" do
+          expect(post.points).to eq(1)
+      end
+  end
 end
