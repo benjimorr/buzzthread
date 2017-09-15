@@ -1,0 +1,6 @@
+You have favorited "<%= @post.title %>"
+<%= "=" * (@post.title.length + 12) %>
+
+This is a confirmation email to let you know that you have favorited "<%= @post.title %>". We will send you emails when this post receives comments from users. Thanks for using BuzzThread!
+
+Visit online at: <%= topic_post_url(@post.topic, @post) %>

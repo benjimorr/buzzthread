@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+    </head>
+    <body>
+        <h1>You have favorited "<%= @post.title %>"</h1>
+        <p>
+            This is a confirmation email to let you know that you have favorited "<%= @post.title %>". We will send you emails when this post receives comments from users. Thanks for using BuzzThread!
+        </p>
+        <p>
+            <%= link_to "View Post on site", topic_post_url(@post.topic, @post) %>
+        </p>
+    </body>
+</html>

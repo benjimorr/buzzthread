@@ -75,4 +75,24 @@ RSpec.describe Post, type: :model do
           end
       end
   end
+
+  describe "create_favorite callback" do
+      before do
+          @another_post = topic.posts.new(title: "My New Post", body: body, user: user)
+      end
+
+      it "creates a favorite for the post" do
+          expect(post.favorites.where(post_id: post.id)).not_to be_nil
+      end
+
+      it "associates the favorite with the user and post" do
+          expect(user.favorites.find_by_post_id(post.id)).not_to be_nil
+      end
+
+      it "sends an email to the post creator" do
+          expect(FavoriteMailer).to receive(:new_post).with(user, @another_post).and_return(double(deliver_now: true))
+
+          @another_post.save!
+      end
+  end
 end
